@@ -43,14 +43,15 @@ const Mailer = () => {
         style={{ margin: '25px 85px 75px 100px' }}
         onSubmit={sendEmail}
       >
+        {/* form */}
         <label style={{color:'white',fontSize:'20px'}}>Name</label>
-        <input type="text" name="name" className="form-control" style={{width:'100%',backgroundColor:'rgba(171, 183, 183, 0.5)',borderRadius:'none',border:'none',color:'white'}} />
+        <input type="text" name="name" className="form-control" style={{width:'100%',backgroundColor:'rgba(171, 183, 183, 0.5)',borderRadius:'none',border:'none',color:'white'}} required/>
 
         <label style={{color:'white',fontSize:'20px'}}>Email</label>
-        <input type="email" name="user_email" className="form-control" style={{width:'100%',backgroundColor:'rgba(171, 183, 183, 0.5)',borderRadius:'10px',border:'none',color:'white'}}/>
+        <input type="email" name="user_email" className="form-control" style={{width:'100%',backgroundColor:'rgba(171, 183, 183, 0.5)',borderRadius:'10px',border:'none',color:'white'}} required/>
 
         <label style={{color:'white',fontSize:'20px'}}>Message</label>
-        <textarea name="message" rows="4" className="form-control" style={{width:'100%',backgroundColor:'rgba(171, 183, 183, 0.5)',borderRadius:'10px',border:'none',color:'white'}} />
+        <textarea name="message" rows="4" className="form-control" style={{width:'100%',backgroundColor:'rgba(171, 183, 183, 0.5)',borderRadius:'10px',border:'none',color:'white'}} required/>
 
         <button
           className="submitInput"
