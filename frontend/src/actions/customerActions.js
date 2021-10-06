@@ -13,7 +13,6 @@ import {
 
 import axios from "axios";
 
-//=============================================================
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: CUSTOMER_LOGIN_REQUEST });
@@ -44,13 +43,11 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
-//============================================================
 export const logout = () => async (dispatch) => {
   localStorage.removeItem("customerInfo");
   dispatch({ type: CUSTOMER_LOGOUT });
 };
 
-//=============================================================
 export const register = (name, email, password, pic) => async (dispatch) => {
   try {
     dispatch({ type: CUSTOMER_REGISTER_REQUEST });
@@ -83,7 +80,6 @@ export const register = (name, email, password, pic) => async (dispatch) => {
   }
 };
 
-//===================================================================
 export const updateProfile = (customer) => async (dispatch, getState) => {
   try {
     dispatch({ type: CUSTOMER_UPDATE_REQUEST });

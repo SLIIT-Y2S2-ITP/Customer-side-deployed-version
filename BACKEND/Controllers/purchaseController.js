@@ -1,13 +1,11 @@
 const asyncHandler = require("express-async-handler");
 const Purchase = require("../models/purchaseModel");
 
-//=======================================================
 const getPurchases = asyncHandler(async (req, res) => {
   const purchases = await Purchase.find({ customer: req.customer._id });
   res.json(purchases);
 });
 
-//=======================================================
 const createPurchase = asyncHandler(async (req, res) => {
   const { title, content, category } = req.body;
 
@@ -28,7 +26,6 @@ const createPurchase = asyncHandler(async (req, res) => {
   }
 });
 
-//=======================================================
 const getPurchaseById = asyncHandler(async (req, res) => {
   const purchase = await Purchase.findById(req.params.id);
 
@@ -39,7 +36,6 @@ const getPurchaseById = asyncHandler(async (req, res) => {
   }
 });
 
-//=======================================================
 const UpdatePurchase = asyncHandler(async (req, res) => {
   const { title, content, category } = req.body;
 
@@ -63,7 +59,6 @@ const UpdatePurchase = asyncHandler(async (req, res) => {
   }
 });
 
-//=======================================================
 const DeletePurchase = asyncHandler(async (req, res) => {
   const purchase = await Purchase.findById(req.params.id);
 
