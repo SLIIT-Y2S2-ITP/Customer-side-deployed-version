@@ -47,6 +47,7 @@ axios.post('/Cartadd',cartItems[i])
     return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
   };
 
+
   const getCartSubTotal = () => {
     return cartItems
       .reduce((unitPrice, item) => unitPrice + item.unitPrice * item.qty, 0)
@@ -54,8 +55,6 @@ axios.post('/Cartadd',cartItems[i])
   };
 
   //cart checkout
-    
-
 
 
 
@@ -87,7 +86,14 @@ axios.post('/Cartadd',cartItems[i])
             <p>Rs{getCartSubTotal()}</p>
           </div>
           <div>
+            <a href="/onlinePay"><Link
+                          to={{
+                            pathname: "/onlinePay",
+                            data: getCartSubTotal() // your data array of objects
+                          }}
+                        >
             <button onClick={onSubmit}>Proceed To Checkout</button>
+            </Link></a>
           </div>
         </div>
       </div>

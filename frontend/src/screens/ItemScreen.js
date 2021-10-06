@@ -39,6 +39,7 @@ const ItemScreen = ({ match, history }) => {
   }, [history]);
 
   return (
+
     <div className="itemScreen">
       {loading ? (
         <h2>Loading...</h2>

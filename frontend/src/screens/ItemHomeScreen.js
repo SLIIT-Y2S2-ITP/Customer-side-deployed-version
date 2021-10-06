@@ -9,7 +9,8 @@ import { useHistory } from "react-router-dom";
 import Item from "../components/modules/CustomerPageModules/Stock/Item";
 
 //actions
-import { getItems as listItems } from "../redux/actions/itemActions"; //using as litItems it wont clash with the const getItems in the useSelector
+import { getItems as listItems } from "../redux/actions/itemActions";
+import AddExpenseBG from "../images/addexpense.jpg"; //using as litItems it wont clash with the const getItems in the useSelector
 
 const ItemHomeScreen = () => {
   const dispatch = useDispatch();
@@ -30,8 +31,15 @@ const ItemHomeScreen = () => {
   }, [dispatch]);
 
   return (
-    <div className="itemHomeScreen">
-      <h1 class="jt --debug" style={{ marginLeft: "800px" }}>
+    <div className="itemHomeScreen"
+         style={{
+             backgroundImage: `url(${AddExpenseBG})`,
+             backgroundAttachment: "fixed",
+             backgroundRepeat: "no-repeat",
+             backgroundPosition: "center",
+             backgroundSize: "cover",
+         }}>
+      <h1 class="jt --debug" style={{ marginLeft: "800px",color:'white' }}>
         <span class="jt__row">
           <span class="jt__text">Latest Items!</span>
         </span>
@@ -47,8 +55,8 @@ const ItemHomeScreen = () => {
       </h1>
       <br />
       &nbsp;&nbsp;
-      <button className="btn btn-outline-secondary">
-        <i className="fas fa-shopping-cart">
+      <button className="btn btn-outline-secondary" style={{backgroundColor:'rgba(171, 183, 183, 0.7)',marginLeft:'20px'}}>
+        <i className="fas fa-shopping-cart" style={{color:'black'}}>
           <a
             href="/cart"
             style={{
@@ -59,7 +67,7 @@ const ItemHomeScreen = () => {
             }}
           >
             <span>
-              Cart<span className="cartLogo__badge">{getCartCount()}</span>
+              Cart<span className="cartLogo__badge" style={{fontSize:'18px',fontWeight:'bolder',color:'black'}}>{getCartCount()}</span>
             </span>
           </a>
         </i>
@@ -68,9 +76,9 @@ const ItemHomeScreen = () => {
       <br />
       <div className="itemHomeScreen__items">
         {loading ? (
-          <h2>Loading...</h2>
+          <h2 style={{color:'white',fontWeight:'bold'}}>Loading...</h2>
         ) : error ? (
-          <h2>{error}</h2>
+          <h2 style={{color:'white'}}>{error}</h2>
         ) : (
           items.map((item) => (
             <Item

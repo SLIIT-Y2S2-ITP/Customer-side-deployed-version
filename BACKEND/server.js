@@ -82,6 +82,9 @@ const productRoutes = require("./route/productRoutes");
 const shoppingRoutes = require("./route/productShoppingRouter")
 const shoppingRoute = require("./route/productShoppingRoute")
 
+//payment
+const OnlinePayRoute = require("./route/onlinePay");
+
 
 //****route middleware
 app.use(stockRoutes);
@@ -93,13 +96,19 @@ app.use(itemRoutes);
 //newly added
 app.use(productRoutes);
 app.use(shoppingRoutes);
-app.use(shoppingRoute)
+app.use(shoppingRoute);
+
+//payments
+app.use(OnlinePayRoute);
+
+
 //cus
 
 app.use("/api/customers",customerRoutes);
 app.use("/api/purchases",purchaseRoutes);
 app.use(notFound);
 app.use(errorHandler);
+
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number: ${PORT}`)
